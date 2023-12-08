@@ -20,6 +20,11 @@ $(function () {
   // 시작하자마자, 스크롤 영역 구하기
   getHeight();
 
+  // 시작하자마자, 안 보이게
+  // $girl.hide();
+  // $puppy.hide();
+  $girl.add($puppy).hide();
+
   // 브라우저 창이 조절될 때
   $window.on('resize', function () {
     getHeight();
@@ -40,6 +45,17 @@ $(function () {
     // $girl의 left로 적용(%)
     $girl.css('left', percent);
     $puppy.css('left', percent);
+
+    // if (scrollTop === 0) {
+    //   // 스크롤 값이 0이라면 --> 스크롤이 가장 위에 있을 때
+    //   $girl.add($puppy).fadeOut();
+    // } else {
+    //   $girl.add($puppy).fadeIn();
+    // }
+
+    // 문제 : 위 if문을 삼항 조건 연산자로 바꿔서 표현해 주세요.
+    // 조건 ? 참-코드 : 거짓-코드
+    scrollTop === 0 ? $girl.add($puppy).fadeOut() : $girl.add($puppy).fadeIn();
   });
 
   // 마우스 휠 조작했을 때
